@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.jpg";
 
 const Navigation = () => {
   const location = useLocation();
@@ -10,6 +11,8 @@ const Navigation = () => {
     { name: "Home", path: "/" },
     { name: "Gallery", path: "/gallery" },
     { name: "About", path: "/about" },
+    { name: "Investment", path: "/investment" },
+    { name: "Book Now", path: "/bookings" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -20,8 +23,9 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="text-xl sm:text-2xl font-playfair font-semibold tracking-wide hover:text-accent transition-colors">
-            Elegant Weddings
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src={logo} alt="J&A Films Logo" className="h-12 sm:h-14 w-12 sm:w-14 object-contain" />
+            <span className="text-lg sm:text-xl font-playfair font-semibold tracking-wide">J&A Films</span>
           </Link>
 
           {/* Desktop Navigation */}
