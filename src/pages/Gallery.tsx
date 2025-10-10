@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -8,16 +10,53 @@ import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 
 const galleryImages = [
-  { id: 1, src: gallery1, alt: "Wedding dress detail" },
-  { id: 2, src: gallery2, alt: "Couple holding hands" },
-  { id: 3, src: gallery3, alt: "Wedding bouquet" },
-  { id: 4, src: gallery4, alt: "First dance" },
-  { id: 5, src: gallery5, alt: "Bride getting ready" },
-  { id: 6, src: gallery6, alt: "Wedding ceremony" },
+  { id: 1, src: gallery1, alt: "Wedding dress detail", category: "weddings" },
+  { id: 2, src: gallery2, alt: "Couple holding hands", category: "weddings" },
+  { id: 3, src: gallery3, alt: "Wedding bouquet", category: "weddings" },
+  { id: 4, src: gallery4, alt: "Baby portrait", category: "baby" },
+  { id: 5, src: gallery5, alt: "Maternity shoot", category: "maternity" },
+  { id: 6, src: gallery6, alt: "Studio portrait", category: "studio" },
+  { id: 7, src: gallery1, alt: "Wedding moment", category: "weddings" },
+  { id: 8, src: gallery2, alt: "Baby smiling", category: "baby" },
+  { id: 9, src: gallery3, alt: "Baby shower", category: "maternity" },
+  { id: 10, src: gallery4, alt: "Studio session", category: "studio" },
+  { id: 11, src: gallery5, alt: "Bride and groom", category: "weddings" },
+  { id: 12, src: gallery6, alt: "Newborn", category: "baby" },
 ];
 
 const Gallery = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = [
+    { id: "all", name: "All" },
+    { id: "weddings", name: "Weddings" },
+    { id: "baby", name: "Baby Pictures" },
+    { id: "maternity", name: "Maternity / Baby Showers" },
+    { id: "studio", name: "Studio Shoots" },
+  ];
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      setActiveCategory(category);
+    }
+  }, [searchParams]);
+
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    if (categoryId === "all") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category: categoryId });
+    }
+  };
+
+  const filteredImages =
+    activeCategory === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeCategory);
 
   const openLightbox = (id: number) => setSelectedImage(id);
   const closeLightbox = () => setSelectedImage(null);
@@ -33,13 +72,27 @@ const Gallery = () => {
             Our Gallery
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of beautiful moments from weddings we've had the honor to photograph
+            A collection of beautiful moments we've had the honor to capture
           </p>
+        </div>
+
+        {/* Category Navigation */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category.id}
+              variant={activeCategory === category.id ? "default" : "outline"}
+              onClick={() => handleCategoryChange(category.id)}
+              className="font-medium"
+            >
+              {category.name}
+            </Button>
+          ))}
         </div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {galleryImages.map((image, index) => (
+          {filteredImages.map((image, index) => (
             <div
               key={image.id}
               className="relative overflow-hidden rounded-sm cursor-pointer group fade-in"

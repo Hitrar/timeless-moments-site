@@ -56,39 +56,133 @@ const Home = () => {
 
       {/* Featured Work Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-playfair font-semibold mb-4">
             Featured Work
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A glimpse into our most cherished wedding moments
+            Capturing life's most precious moments
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {featuredImages.map((image, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden rounded-lg aspect-[3/4] group fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-            </div>
-          ))}
+        {/* Weddings */}
+        <div className="mb-20">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-playfair font-semibold">
+              Weddings
+            </h3>
+            <Link to="/gallery?category=weddings">
+              <Button variant="ghost" className="text-accent hover:text-accent/80">
+                View More →
+              </Button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredImages.slice(0, 3).map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-lg aspect-[3/4] group fade-in"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="text-center mt-12">
-          <Link to="/gallery">
-            <Button size="lg" variant="outline" className="font-medium">
-              View Full Portfolio
-            </Button>
-          </Link>
+        {/* Baby Pictures */}
+        <div className="mb-20">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-playfair font-semibold">
+              Baby Pictures
+            </h3>
+            <Link to="/gallery?category=baby">
+              <Button variant="ghost" className="text-accent hover:text-accent/80">
+                View More →
+              </Button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredImages.slice(0, 3).map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-lg aspect-[3/4] group fade-in"
+              >
+                <img
+                  src={image.src}
+                  alt="Baby photography"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Maternity/Baby Showers */}
+        <div className="mb-20">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-playfair font-semibold">
+              Maternity / Baby Showers
+            </h3>
+            <Link to="/gallery?category=maternity">
+              <Button variant="ghost" className="text-accent hover:text-accent/80">
+                View More →
+              </Button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredImages.slice(3, 6).map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-lg aspect-[3/4] group fade-in"
+              >
+                <img
+                  src={image.src}
+                  alt="Maternity and baby shower photography"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Studio Shoots */}
+        <div>
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-playfair font-semibold">
+              Studio Shoots
+            </h3>
+            <Link to="/gallery?category=studio">
+              <Button variant="ghost" className="text-accent hover:text-accent/80">
+                View More →
+              </Button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredImages.slice(0, 3).map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-lg aspect-[3/4] group fade-in"
+              >
+                <img
+                  src={image.src}
+                  alt="Studio photography"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
