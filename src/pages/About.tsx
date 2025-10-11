@@ -27,13 +27,13 @@ const About = () => {
           {/* Bio */}
           <div className="space-y-6 fade-in" style={{ animationDelay: "0.2s" }}>
             <h2 className="text-3xl sm:text-4xl font-playfair font-semibold">
-              Hello, I'm Your Photographer
+              Hello, I'm Your Photographer and Videographer
             </h2>
             
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 With over a decade of experience capturing love stories, I specialize in creating 
-                timeless, elegant wedding photography that reflects the unique beauty of each couple's 
+                timeless, elegant wedding photography and videography that reflects the unique beauty of each couple's 
                 special day.
               </p>
               
