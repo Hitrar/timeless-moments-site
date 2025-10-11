@@ -35,6 +35,7 @@ const Gallery = () => {
     { id: "baby", name: "Baby Pictures" },
     { id: "maternity", name: "Maternity / Baby Showers" },
     { id: "studio", name: "Studio Shoots" },
+    { id: "videos", name: "Videos" },
   ];
 
   useEffect(() => {
