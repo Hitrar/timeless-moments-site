@@ -10,6 +10,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Gallery", path: "/gallery" },
+    { name: "Videos", path: "/gallery?category=videos" },
     { name: "About", path: "/about" },
     { name: "Investment", path: "/investment" },
     { name: "Book Now", path: "/bookings" },
