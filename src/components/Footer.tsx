@@ -1,4 +1,4 @@
-import import { Instagram, Youtube, Mail } from "lucide-react";
+import { Instagram, Youtube, Mail } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 
 import { Link } from "react-router-dom";
