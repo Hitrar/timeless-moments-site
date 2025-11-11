@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail } from "lucide-react";
+import { Instagram, Youtube, Tiktok, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex space-x-6">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com//jandjfilmsnc"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors"
@@ -40,17 +40,26 @@ const Footer = () => {
             >
               <Instagram size={24} />
             </a>
-            <a
-              href="https://facebook.com"
+              <a
+              href="https://titkok.com//JandJFilms"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors"
-              aria-label="Facebook"
+              aria-label="Titktok"
             >
-              <Facebook size={24} />
+              <Tiktok size={24} />
             </a>
             <a
-              href="mailto:hello@jafilms.com"
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-accent transition-colors"
+              aria-label="Youtube"
+            >
+              <Youtube size={24} />
+            </a>
+            <a
+              href="mailto:Jacob_agbetor@yahoo.com"
               className="text-muted-foreground hover:text-accent transition-colors"
               aria-label="Email"
             >
