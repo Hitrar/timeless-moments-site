@@ -43,13 +43,13 @@ const Footer = () => {
               <Instagram size={24} />
             </a>
               <a
-              href="https://titkok.com//JandJFilms"
+              href="https://tiktok.com/@JandJFilms"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors"
-              aria-label="Titktok"
+              aria-label="TikTok"
             >
-              <siTiktok size={24} />
+              <SiTiktok size={24} />
             </a>
             <a
               href="https://youtube.com"
