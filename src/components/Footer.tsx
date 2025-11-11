@@ -1,4 +1,6 @@
-import { Instagram, Youtube, Tiktok, Mail } from "lucide-react";
+import import { Instagram, Youtube, Mail } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -47,7 +49,7 @@ const Footer = () => {
               className="text-muted-foreground hover:text-accent transition-colors"
               aria-label="Titktok"
             >
-              <Tiktok size={24} />
+              <siTiktok size={24} />
             </a>
             <a
               href="https://youtube.com"
